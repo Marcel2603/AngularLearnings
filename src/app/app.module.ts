@@ -8,6 +8,7 @@ import {HomeModule} from "./pages/home/home.module";
 import {HasRoleDirectiveModule} from "./directives/has-role.directive.module";
 import {RoleService} from "./services/role.service";
 import { ErrorComponent } from './pages/error/error.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ErrorComponent } from './pages/error/error.component';
     BrowserModule,
     AppRoutingModule,
     HomeModule,
-    HasRoleDirectiveModule
+    HasRoleDirectiveModule,
+    HttpClientModule
   ],
   providers: [RoleService],
   exports: [],

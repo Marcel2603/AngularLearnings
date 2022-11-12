@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-home',
@@ -7,10 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+  }
 
   ngOnInit(): void {
     console.log("some test")
+  }
+
+  testButton() {
+    this.http.get("http://localhost:9000/link/file", {
+      params: {
+        key: "test3.xml"
+      },
+    }).toPromise()
+      .then(link => {
+        console.log(link)
+        window.open(link as string, '_blank')
+
+      });
   }
 
 }
